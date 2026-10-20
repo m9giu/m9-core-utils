@@ -1,6 +1,6 @@
 # m9-audit-kit
 
-[![ci](https://github.com/M9GIU/m9giu-sandbox-achievements/actions/workflows/ci.yml/badge.svg)](https://github.com/M9GIU/m9giu-sandbox-achievements/actions/workflows/ci.yml)
+[![ci](https://github.com/M9GIU/m9-core-utils/actions/workflows/ci.yml/badge.svg)](https://github.com/M9GIU/m9-core-utils/actions/workflows/ci.yml)
 
 A small, dependency-free CLI that audits repository governance files: license, README,
 contribution policy, code of conduct, security policy, CI, CODEOWNERS, Dependabot,

@@ -21,7 +21,7 @@ mergeable change with tests and documentation; no empty or cosmetic-only pull re
 ## Progress
 
 - [x] M1 foundation bootstrap (this pull request)
-- [ ] M1 pilot: first ten checks (P-01…P-10)
+- [ ] M1 pilot: P-01…P-08 merged; P-09…P-10 in review
 - [ ] M2–M12 per milestone plans (each block requires its own approved change map)
 
 ## Rules
