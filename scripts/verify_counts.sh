@@ -2,7 +2,7 @@
 # Read-only counters for the sandbox. Never writes to GitHub.
 set -euo pipefail
 
-REPO="${REPO:-M9GIU/m9giu-sandbox-achievements}"
+REPO="${REPO:-M9GIU/m9-core-utils}"
 TARGET="${TARGET:-128}"
 
 command -v gh >/dev/null 2>&1 || { echo "error: gh is not installed" >&2; exit 2; }
