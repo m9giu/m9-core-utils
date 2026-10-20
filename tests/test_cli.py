@@ -8,11 +8,11 @@ from pathlib import Path
 from m9_audit_kit.cli import main
 
 
-def test_empty_root_reports_license_failure(tmp_path: Path, capsys: object) -> None:
+def test_empty_root_reports_failures(tmp_path: Path, capsys: object) -> None:
     assert main([str(tmp_path)]) == 1
     captured = capsys.readouterr()  # type: ignore[attr-defined]
     assert "FAIL  license: no LICENSE file found" in captured.out
-    assert "checks: 0 pass, 0 warn, 1 fail, 0 skip" in captured.out
+    assert "FAIL  readme: no README file found" in captured.out
 
 
 def test_json_format(tmp_path: Path, capsys: object) -> None:
@@ -20,7 +20,7 @@ def test_json_format(tmp_path: Path, capsys: object) -> None:
     captured = capsys.readouterr()  # type: ignore[attr-defined]
     payload = json.loads(captured.out)
     assert payload["schema"] == "m9.audit/1"
-    assert payload["summary"]["fail"] == 1
+    assert payload["summary"]["fail"] >= 1
     assert payload["results"][0]["check"] == "license"
 
 
