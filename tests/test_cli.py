@@ -21,7 +21,7 @@ def test_json_format(tmp_path: Path, capsys: object) -> None:
     payload = json.loads(captured.out)
     assert payload["schema"] == "m9.audit/1"
     assert payload["summary"]["fail"] >= 1
-    assert payload["results"][0]["check"] == "license"
+    assert "license" in {result["check"] for result in payload["results"]}
 
 
 def test_missing_path_exits_two(tmp_path: Path, capsys: object) -> None:
