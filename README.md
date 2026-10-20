@@ -1,3 +1,13 @@
+```text
+  __  __  ___    ____                  _   _ _   _ _ _
+ |  \/  |/ _ \  / ___|___  _ __ ___   | | | | |_(_) |___
+ | |\/| | (_) | | |  / _ \| '__/ _ \  | | | | __| | / __|
+ | |  | |\__, | | |_| (_) | | |  __/  | |_| | |_| | \__ \
+ |_|  |_|  /_/   \____\___/|_|  \___|   \___/ \__|_|_|___/
+```
+
+![M9 Core Utilities Banner](docs/assets/banner.png)
+
 # M9 Core Utilities (`m9-core-utils`)
 
 [![CI](https://github.com/M9GIU/m9-core-utils/actions/workflows/ci.yml/badge.svg)](https://github.com/M9GIU/m9-core-utils/actions/workflows/ci.yml)
@@ -10,7 +20,9 @@
 **M9 Core Utilities** is a dependency-free Python toolkit for deterministic repository
 governance audits. It provides a typed check registry, immutable result contracts and
 stable machine-readable reporting for CI pipelines, platform teams and engineering
-governance programmes.
+governance programmes. Architecturally, it is designed to evolve into a middleware layer
+for digital workers, adding concurrency, telemetry and strict schema/security primitives
+(see Roadmap).
 
 The library is intentionally conservative in its execution model: every check is a pure,
 synchronous function over a working tree. There is no network I/O, no code execution from
