@@ -1,0 +1,83 @@
+{
+  "schema": "m9.backlog/1",
+  "increment": "pilot-10",
+  "gate": "G-02",
+  "rules": {
+    "one_unit_per_pull_request": true,
+    "ci_required": true,
+    "empty_pull_requests_forbidden": true,
+    "max_merges_per_day": 4
+  },
+  "units": [
+    {
+      "id": "P-01",
+      "slug": "license",
+      "title": "Check that a recognised LICENSE file exists",
+      "acceptance": "Returns pass for MIT/Apache-2.0/GPL files and fail when no license is present.",
+      "files": ["src/m9_audit_kit/checks/license.py", "tests/test_license.py", "docs/checks/license.md"]
+    },
+    {
+      "id": "P-02",
+      "slug": "readme",
+      "title": "Check that README explains the project",
+      "acceptance": "Returns pass when README has a title, installation and usage sections.",
+      "files": ["src/m9_audit_kit/checks/readme.py", "tests/test_readme.py", "docs/checks/readme.md"]
+    },
+    {
+      "id": "P-03",
+      "slug": "contributing",
+      "title": "Check that CONTRIBUTING describes the pull-request workflow",
+      "acceptance": "Returns pass when CONTRIBUTING mentions pull requests and tests.",
+      "files": ["src/m9_audit_kit/checks/contributing.py", "tests/test_contributing.py", "docs/checks/contributing.md"]
+    },
+    {
+      "id": "P-04",
+      "slug": "code_of_conduct",
+      "title": "Check that a code of conduct is adopted",
+      "acceptance": "Returns pass when CODE_OF_CONDUCT references Contributor Covenant or an equivalent policy.",
+      "files": ["src/m9_audit_kit/checks/code_of_conduct.py", "tests/test_code_of_conduct.py", "docs/checks/code_of_conduct.md"]
+    },
+    {
+      "id": "P-05",
+      "slug": "security_policy",
+      "title": "Check that SECURITY explains vulnerability reporting",
+      "acceptance": "Returns pass when SECURITY describes a private reporting channel.",
+      "files": ["src/m9_audit_kit/checks/security_policy.py", "tests/test_security_policy.py", "docs/checks/security_policy.md"]
+    },
+    {
+      "id": "P-06",
+      "slug": "ci_workflow",
+      "title": "Check that a CI workflow runs on push and pull request",
+      "acceptance": "Returns pass when a workflow declares both triggers and at least one job.",
+      "files": ["src/m9_audit_kit/checks/ci_workflow.py", "tests/test_ci_workflow.py", "docs/checks/ci_workflow.md"]
+    },
+    {
+      "id": "P-07",
+      "slug": "codeowners",
+      "title": "Check that CODEOWNERS assigns ownership",
+      "acceptance": "Returns pass when CODEOWNERS contains at least one rule with an owner.",
+      "files": ["src/m9_audit_kit/checks/codeowners.py", "tests/test_codeowners.py", "docs/checks/codeowners.md"]
+    },
+    {
+      "id": "P-08",
+      "slug": "dependabot",
+      "title": "Check that Dependabot is configured",
+      "acceptance": "Returns pass when dependabot.yml declares a package ecosystem.",
+      "files": ["src/m9_audit_kit/checks/dependabot.py", "tests/test_dependabot.py", "docs/checks/dependabot.md"]
+    },
+    {
+      "id": "P-09",
+      "slug": "issue_templates",
+      "title": "Check that issue templates exist",
+      "acceptance": "Returns pass when .github/ISSUE_TEMPLATE contains at least one template.",
+      "files": ["src/m9_audit_kit/checks/issue_templates.py", "tests/test_issue_templates.py", "docs/checks/issue_templates.md"]
+    },
+    {
+      "id": "P-10",
+      "slug": "branch_protection",
+      "title": "Check that branch protection is documented",
+      "acceptance": "Returns pass when .github/branch-protection.yml documents the policy; API verification is out of scope for local checks.",
+      "files": ["src/m9_audit_kit/checks/branch_protection.py", "tests/test_branch_protection.py", "docs/checks/branch_protection.md"]
+    }
+  ]
+}
