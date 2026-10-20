@@ -1,6 +1,9 @@
-"""Check registry."""
+"""Check registry with automatic module discovery."""
 
 from __future__ import annotations
+
+from importlib import import_module
+from pkgutil import iter_modules
 
 from .base import Check, CheckResult, Status
 
@@ -29,5 +32,15 @@ def all_checks() -> tuple[Check, ...]:
     """Return every registered check in deterministic order."""
     return tuple(_REGISTRY[slug] for slug in sorted(_REGISTRY))
 
+
+def _discover() -> None:
+    """Import every check module so it can register itself."""
+    for info in iter_modules(__path__):
+        if info.name == "base" or info.name.startswith("_"):
+            continue
+        import_module(f"{__name__}.{info.name}")
+
+
+_discover()
 
 __all__ = ["Check", "CheckResult", "Status", "all_checks", "get_check", "register"]
